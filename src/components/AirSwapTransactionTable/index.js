@@ -1,8 +1,12 @@
+/**
+ * @class AirSwapTransactionTable
+ * @description Display results
+ */
+
 import React from 'react'
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import moment from 'moment';
 import styles from './styles.css';
-import AirSwapTextInput from 'components/AirSwapTextInput'
 import { Link } from 'react-router-dom'
 
 const AirSwapTransactionTable = (props) => {
@@ -49,6 +53,6 @@ const AirSwapTransactionTableRow = ({age, from, to, value}) => (
        </Col>
     </Row>
   </Col>
-)
+);
 
-export default AirSwapTransactionTable
+export default AirSwapTransactionTable;

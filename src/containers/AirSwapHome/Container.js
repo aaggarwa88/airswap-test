@@ -11,7 +11,7 @@ const mapStateToProps = ({router, transactions}) => {
 
   return {
     activeTransactionQuery: parsedQueries.q,
-    allTransactions: parsedQueries.q && transactions.transactions && transactions.transactions[parsedQueries.q] || [],
+    allTransactions: (parsedQueries.q && transactions.transactions && transactions.transactions[parsedQueries.q]) || [],
     isTransactionLoading: transactions.isLoading,
     isTransactionError: !!transactions.isError,
     searchHistory: searchHistory,

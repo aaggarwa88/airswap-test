@@ -1,8 +1,12 @@
+/**
+ * @class AirSwapHeader
+ */
+
+
 import React from 'react'
-import { Grid, Row, Col } from 'react-flexbox-grid';
+import { Row, Col } from 'react-flexbox-grid';
 
 import AirSwapHero from 'components/AirSwapHero';
-import AirSwapTokenPrice from 'components/AirSwapTokenPrice'
 
 import { Link } from 'react-router-dom';
 import LogoBlack from 'assets/logo-airswap-black.png';
@@ -15,7 +19,7 @@ const AirSwapHeader = (props) => (
       <Col xs={12}>
         <Row middle="xs" center="xs">
           <Link to="/">
-            <img className={styles.logo} src={LogoBlack} />
+            <img alt="airswap logo" className={styles.logo} src={LogoBlack} />
           </Link>
         </Row>
       </Col>

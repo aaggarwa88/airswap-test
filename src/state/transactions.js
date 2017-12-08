@@ -1,3 +1,9 @@
+/**
+ * @class Transaction
+ * @description State definition for main search functionality
+ */
+
+
 import { combineReducers } from 'redux';
 
 export const RECEIVE_TRANSACTION = 'transaction/RECEIVE_TRANSACTION';
@@ -50,6 +56,12 @@ export default combineReducers({
 })
 
 /***********************
+  SELECTOS
+************************/
+
+const getTransactions = state => state.transactions.transactions;
+
+/***********************
   ACTION & CREATORS
 ************************/
 
@@ -71,6 +83,13 @@ export const errorTransaction = (data) => ({
 export const queryTransaction = (transactionKey) =>
   (dispatch, getState) => new Promise((resolve, reject) => {
     dispatch(requestTransaction())
+
+    const allTransactions = getTransactions(getState());
+    // If already exists in transactions list, use that
+    if(allTransactions[transactionKey])  {
+      dispatch(recieveTransaction({transactionKey, transaction: allTransactions[transactionKey]}))
+      resolve();
+    }
     return fetch(`https://api.etherscan.io/api?module=account&action=txlist&address=${transactionKey}&startblock=0&endblock=99999999&page=1&offset=100&sort=asc&apikey=YourApiKeyToken`)
       .then(response => response.json())
       .then(responseJson => {

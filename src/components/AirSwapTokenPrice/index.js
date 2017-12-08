@@ -1,3 +1,8 @@
+/**
+ * @class AirSwapTokenPrice
+ * @description Standalone component for getting current airswap price
+ */
+
 import React from 'react'
 import container from './Container';
 

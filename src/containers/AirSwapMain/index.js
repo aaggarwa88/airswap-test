@@ -1,9 +1,12 @@
+/**
+ * @class AirSwapMain
+ * @description Use for main Router definition of app
+ */
+
 import React from 'react';
-import { Route, Link } from 'react-router-dom'
+import { Route } from 'react-router-dom'
 import AirSwapHome from 'containers/AirSwapHome'
 
-
-/* Define Routes here */
 const AirSwapMain = () => (
   <div>
     <main>

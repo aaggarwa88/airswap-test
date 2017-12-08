@@ -1,0 +1,15 @@
+.home {
+  overflow: hidden;
+}
+.homeBg {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  opacity: .05;
+  bottom: -220px;
+  right: -180px;
+  z-index: -1;
+}
+
+.homeBgImg {
+}

@@ -1,3 +1,8 @@
+/**
+ * @class AirSwapTextInput
+ * @description Main Search component for AirSwap test
+ */
+
 import React from 'react'
 import Autocomplete from 'react-autocomplete'
 
@@ -18,16 +23,19 @@ class AirSwapTextInput extends React.Component {
 
   componentDidMount() {
     const { activeTransactionQuery } = this.props;
+    // If the url has a search query, than call query action
     if (activeTransactionQuery) {
       this.props.queryTransaction(activeTransactionQuery)
       .catch((e) => {
-        // alert(e);
+        alert(e);
       })
     }
   }
 
   componentWillReceiveProps(nextProps) {
+    // If the query has changed, than update state and try making query
     if(nextProps.activeTransactionQuery !== this.props.activeTransactionQuery) {
+      window.scrollTo(0, 0);
       this.setState({value: nextProps.activeTransactionQuery})
       if(nextProps.activeTransactionQuery) {
         this.search(nextProps.activeTransactionQuery)
@@ -35,15 +43,16 @@ class AirSwapTextInput extends React.Component {
     }
   }
   search(value = this.state.value) {
-    const { queryTransaction, changeQueryPage } = this.props;
+    const { changeQueryPage } = this.props;
     this.props.queryTransaction(value).then(() => {
+      // the query is valid, than update URL
       changeQueryPage(value);
     }).catch((e) => {
       // alert(e);
     })
   }
   render() {
-    const { activeTransactionQuery, searchHistory, changeQuery, isTransactionError, isTransactionLoading } = this.props;
+    const {  searchHistory, isTransactionError, isTransactionLoading } = this.props;
     const { value } = this.state;
 
     const loadingStyle = isTransactionLoading ? styles.loading : styles.notLoading;
@@ -60,7 +69,7 @@ class AirSwapTextInput extends React.Component {
           className: `${styles.input} ${loadingStyle} ${errorStyle}`,
           placeholder: 'Enter an Ether Transaction Address',
           style: loaderBg,
-          onKeyPress: (e) => e.key == 'Enter' ? this.search() : null,
+          onKeyPress: (e) => e.key === 'Enter' ? this.search() : null,
           onFocus: () => this.setState({ focus: true }),
           onBlur: () => this.setState({ focus: false })
         }}

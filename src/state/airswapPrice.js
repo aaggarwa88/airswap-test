@@ -1,3 +1,9 @@
+/**
+ * @class AirSwapPrice
+ * @description Reducer for getting live price for airswap token
+ */
+
+
 import { combineReducers } from 'redux';
 
 export const RECEIVE_PRICE = 'airswapPrice/RECEIVE_PRICE';
@@ -28,9 +34,8 @@ export default combineReducers({
 });
 
 /***********************
-  ACTION & CREATORS
+  ACTIONS & CREATORS
 ************************/
-
 
 export const requestPrice= () => ({
   type: REQUEST_PRICE
