@@ -26,13 +26,14 @@ Preview:
 - React
 - Redux
 - CSS Modules
+
 Architecture is classic React/Redux, with React Router and Redux thunk with use of HOC and easy to read naming conventions.
 
 # UI & Branding
 After reviewing Airswap branding, I went with a more futurism look using subtle gradieted blues in contfast with whites and light greys.  I used suble shadowing for highlighting and finetouches around borders.  Also the typopography (Iceland  & monospace from google fonts) was inspired by a more technical look to highlight the futuristic elements. UI is pure Google style minimal. I think the best apps are ones that combine clean, minimal UI with powerful backend functionality.
 
 # Next Steps
-If I had more time, I really wanted to display my recent technical architectures of sharing redux state between react and a react-native app.  The idea is to show how I think about redux states as abstractions of the product, without a specific client in mind.  
+If I had more time, I really wanted to display my recent technical architectures of sharing redux state between react and a react-native app.  The idea is to show how I think about redux states as abstractions of the product, without a specific client in mind.
 
 Other things I would like to improve, given more time:
 - Scrollling header
